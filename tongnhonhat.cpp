@@ -2,14 +2,19 @@
 #include <algorithm>
 using namespace std;
 int n;
-int a[20];
-int so1;
-int so2;
+long long a[20];
+long long so1;
+long long so2;
 void Init(){
     cin>>n;
     for(int i=0;i<n;i++){
         cin>>a[i];
     }
+    // if(a[0]=0){
+    //     int x=a[0];
+    //     a[0]=a[2];
+    //     a[2]=
+    // }
 }
 void Greedy(){
     sort(a,a+n);
@@ -26,6 +31,7 @@ void Greedy(){
     cout<<so1+so2<<endl;
 }
 int main (){
+
     int t;
     cin>>t;
     while(t--){

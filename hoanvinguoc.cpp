@@ -1,45 +1,35 @@
 #include <iostream>
 #include <vector>
-#include <string>
+#include <algorithm>
 using namespace std;
-bool isHV(string str)
-{
-    for (int i = 0; i < str.length() - 1; i++)
-    {
-        for (int j = i + 1; j < str.length(); j++)
-        {
-            if (str[i] == str[j])
-                return false;
-        }
-    }
-    return true;
-}
-void generate(int n, int k, string current)
-{
-    if (n == 0)
-    {
 
-        if (isHV(current)==1)
-        {
-            cout << current << " ";
+// Hàm để liệt kê tất cả các hoán vị của 1, 2, .., N theo thứ tự ngược
+void permuteReverse(int n) {
+    vector<int> nums(n);
+    for (int i = 0; i < n; ++i) {
+        nums[i] = i + 1;
+    }
 
-            return;
+    // In hoán vị ngược
+    do {
+        for (int i = n - 1; i >= 0; --i) {
+            cout << nums[i];
         }
-    }
-    for (int i = k; i > 0; i--)
-    {
-        generate(n - 1, k, current + to_string(i));
-    }
+        cout << endl;
+    } while (prev_permutation(nums.begin(), nums.end()));
 }
 
-int main()
-{
-    cout<<isHV("12");
-    int n;
-    cin >> n;
-    int k = n;
+int main() {
+    int T;
+    cin >> T;
 
-    generate(n, k, "");
+    for (int t = 0; t < T; ++t) {
+        int N;
+        cin >> N;
+
+        // Liệt kê hoán vị ngược cho mỗi test case
+        permuteReverse(N);
+    }
 
     return 0;
 }
